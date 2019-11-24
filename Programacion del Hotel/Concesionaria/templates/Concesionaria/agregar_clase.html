@@ -1,0 +1,51 @@
+{% extends 'Concesionaria/base.html' %}
+
+
+<body>
+{% if user.is_authenticated %}
+{% for group in user.groups.all %}
+    {% if group.name == 'administrador' %}
+
+    {% block title %}Agregar Clases{% endblock %}
+        {% block header %}
+
+        <div>
+            </br>
+            </br>
+
+            <h1>Agregar Clases</a></h1>
+
+        </div>
+
+        {% endblock %}
+
+
+
+        {% block content %}
+
+
+        <form method="POST" action="">
+
+     {% csrf_token %}
+        {{agregar_form.as_p}}
+
+     <button type="submit" value='Agregar Clases'>Guardar cambios</button>
+         </form>
+
+        {% endblock %}
+
+
+
+     {% block footer %}
+
+
+        {% endblock %}
+
+    {% else %}
+        </br>
+        <h3><p style="color:red;"> Ingreso no permitido </h3></p>
+        </br>
+    {% endif %}
+{% endfor %}
+{% endif %}
+</body>

@@ -1,0 +1,48 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}Promociones{% endblock %}
+{% block content %}
+
+</br>
+</br>
+</br>
+<a class="btn btn-primary" href="{% url 'promocion_nuevo' %}"   >Agregar promocion</a>
+
+<br>
+</br>
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <td>Datos</td>
+                <td>Id de la promocion</td> 
+                <td>Vigencia</td>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+            {% if promociones %}
+            {% for promocion in promociones %}
+            <tr>
+                <td>{{promocion.datos}}</td>
+                <td>{{promocion.id_promocion}}</td>
+                <td>{{promocion.vigencia}}</td>
+
+                <td>
+                    <a class="btn btn-primary"  href="{% url 'promocion_modificar' pk=promocion.pk %}">Editar</a>
+                    <a class="btn btn-danger"  href="{% url 'promocion_borrar' pk=promocion.pk %}">Borrar</a>
+                </td>
+
+            <tr>
+            {% endfor %}
+            {% else %}
+        </br>
+            <h3><p style="color:red;"> No hay registros de promociones </h3></p>
+        </br>
+            {% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

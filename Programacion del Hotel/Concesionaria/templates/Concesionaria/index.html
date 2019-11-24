@@ -1,0 +1,136 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ agregar_form.media }}
+{{ modificar_form.media }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+<link rel="stylesheet" href="{% static 'css/spinners.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static '/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/colors/default.css' %}">      
+<link rel="stylesheet" href="{% static 'css/icons/linea-icons/linea.css' %}">
+
+<link rel="stylesheet" href="{% static '/plugins/images/admin-logo.png' %}">
+<link rel="stylesheet" href="{% static '/plugins/images/admin-logo-dark.png' %}">
+<link rel="stylesheet" href="{% static '/plugins/images/admin-text.png' %}">
+<link rel="stylesheet" href="{% static '/plugins/images/admin-text-dark.png' %}">
+<link rel="stylesheet" href="{% static '/plugins/images/users/varun.jpg' %}">
+<link rel="stylesheet" href="{% static '/plugins/bower_components/toast-master/css/jquery.toast.css' %}">
+<link rel="stylesheet" href="{% static '/plugins/bower_components/morrisjs/morris.css' %}">
+<link rel="stylesheet" href="{% static '/plugins/bower_components/chartist-js/dist/chartist.min.css' %}">
+<link rel="stylesheet" href="{% static '/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %}">
+<link rel="stylesheet" href="{% static '' %}">
+<link rel="stylesheet" href="{% static '' %}">
+<link rel="stylesheet" href="{% static '' %}">
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+        <title>{% block title%} Hotel {% endblock %}</title>
+       
+</head>
+
+<body class="fix-header">
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-mid-part">
+                    <li style="padding: 20px 0 0;"><a href="/" style= "display: inline-block; margin-left: 40%;">
+                        <img src="{% static 'yimuda.png' %}"></a>
+                    
+                    <ul class="nav navbar-top-links navbar-right pull-right">
+                    </li>
+
+                    <li>
+                    {% if user.is_authenticated %}
+                    <a class="profile-pic" href="#"> <img src="{% static 'plugins/images/users/varun.jpg' %}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">{{user.first_name}}</b></a>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <a href="/accout/logout"  class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Salir de la sesion</a>
+                    {% else %}
+                    <a href="/accout/login"  class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Iniciar sesion</a>
+                    <a href="/accout/register"  class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Registrarse</a>
+                    </div>
+                    </div>
+
+                    </li>
+                     </ul>
+                    {% endif %}
+                </div>
+
+            </div>
+        </nav>
+
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li style="padding: 150px 0 0;">
+                        <a href="{% url 'habitacion_ver' %}" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Habitaciones</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a href="" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Usuarios</a>
+                    </li>
+                -->
+                    
+
+                    
+                    <li>
+                        <a href="{% url 'clase_ver' %}" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Clases</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'reserva_ver' %}" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Reservas</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'opinion_ver' %}" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Opiniones</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'promocion_ver' %}" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Promociones</a>
+                    </li>
+                </ul>
+            </div>  
+        </div>  
+        
+    </div>
+    <!-- ============================================================== -->
+    <script src="../plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Counter js -->
+    <script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+    <!-- chartist chart -->
+    <script src="../plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+    <script src="../plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- Sparkline chart JavaScript -->
+    <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <script src="js/dashboard1.js"></script>
+    <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>  
+
+</html>

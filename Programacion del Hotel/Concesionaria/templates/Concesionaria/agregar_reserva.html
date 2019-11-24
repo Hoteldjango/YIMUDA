@@ -1,0 +1,48 @@
+{% extends 'Concesionaria/base.html' %}
+
+
+
+
+<body>
+{% block title %}Agregar Reservas{% endblock %}
+    {% block header %}
+
+        <div>
+            </br>
+            </br>
+
+            <h1>Agregar Reserva</a></h1>
+
+        </div>
+
+    {% endblock %}
+
+
+
+    {% block content %}
+
+
+    <form method="POST" action="">
+
+    {% csrf_token %}
+
+    {{agregar_form.as_p}}
+
+
+
+
+{% block scripts_local %}  
+{% endblock scripts_local %}    
+    <button type="submit" value='Agregar Reserva'>Guardar cambios</button>
+    </form>
+
+    {% endblock %}
+
+
+
+    {% block footer %}
+
+
+    {% endblock %}
+
+</body>

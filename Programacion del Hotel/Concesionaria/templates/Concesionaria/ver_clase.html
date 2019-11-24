@@ -1,0 +1,55 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% for group in user.groups.all %}
+    {% if group.name == 'administrador' %}
+
+{% block title %}Clases{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+
+<a class="btn btn-primary" href="{% url 'clase_nuevo' %}"  >Agregar Clase</a>
+
+<br>
+<br>
+</br>
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <td>Clase</td>
+                <td>Precio</td>
+                <td>Acciones</td>
+
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+            {% if clases %}
+            {% for clase in clases %}
+            <tr>
+                <td>{{clase.tipos}}</td>
+                <td>{{clase.precios}}$</td>
+
+
+                <td>
+                    <a class="btn btn-primary"  href="{% url 'clase_modificar' pk=clase.pk %}">Editar</a>
+                    <a class="btn btn-danger"  href="{% url 'clase_borrar' pk=clase.pk %}">Borrar</a>
+                </td>
+
+            <tr>
+            {% endfor %}
+            {% else %}
+        </br>
+            <h3><p style="color:red;"> No hay registros de clasees </h3></p>
+        </br>
+            {% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}
+    {% endif %}
+{% endfor %}

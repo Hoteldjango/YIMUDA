@@ -1,0 +1,64 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}
+Habitaciones
+{% endblock %}
+
+{% block content %}
+
+</br>
+</br>
+</br>
+</br>
+<a class="btn btn-primary" href="{% url 'habitacion_nuevo' %}"  >Agregar Habitacion</a>
+
+
+
+<br>
+<br>
+</br>
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <td>Numero de habitacion</td>
+                <td>Imagen</td>
+                <!--<td>Precio</td>-->
+                <td>Capacidad</td>
+                <td>Clase</td>
+                <td>Informacion</td>
+                <td>Estado</td>
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+            {% if habitaciones %}
+            {% for habitacion in habitaciones %}
+            <tr>
+                <td>{{habitacion.numero_habitacion}}</td>
+                <td>{{habitacion.imagen}}</td>
+                <!--<td>{{habitacion.precio}}</td>-->
+                <td>{{habitacion.capacidad}}</td>
+                <td>{{habitacion.clase}}</td>
+                <td>{{habitacion.informacion}}</td>
+                <td>{{habitacion.estado}}</td>
+
+                <td>
+                    <a class="btn btn-primary"  href="/admin/Concesionaria/habitacion/">Editar</a>
+                    <a class="btn btn-danger"  href="{% url 'habitacion_borrar' pk=habitacion.pk %}">Borrar</a>
+                </td>
+
+            <tr>
+            {% endfor %}
+            {% else %}
+        </br>
+            <h3><p style="color:red;"> No hay registros de habitaciones </h3></p>
+        </br>
+            {% endif %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

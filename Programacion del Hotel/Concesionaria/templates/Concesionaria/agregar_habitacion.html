@@ -1,0 +1,43 @@
+{% extends 'Concesionaria/base.html' %}
+
+
+
+<body>
+{% block title %}Agregar Habitaciones{% endblock %}
+    {% block header %}
+
+    </br>
+    </br>
+    </br>
+
+        <div>
+
+            <h1>Agregar Habitaciones</a></h1>
+
+        </div>
+
+    {% endblock %}
+
+
+
+    {% block content %}
+
+
+    <form method="POST" action="">
+
+    {% csrf_token %}
+    {{agregar_form.as_p}}
+
+    <button type="submit" value='Agregar Habitaciones'>Guardar cambios</button>
+    </form>
+
+    {% endblock %}
+
+
+
+    {% block footer %}
+
+
+    {% endblock %}
+
+</body>

@@ -1,0 +1,96 @@
+{% extends 'usuarios/template_raiz.html' %}
+{{ agregar_form.media }}
+{% block barrita %}
+<li ><a href="/"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Inicio</span></div></a></li>
+<li><a href="{% url 'restaurante' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Restaurante</span></div></a></li>
+<li><a href="{% url 'habitaciones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Habitaciones</span></div></a></li>
+<li><a href="{% url 'opiniones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Opiniones</span></div></a></li>
+<li><a href="{% url 'contacto' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Contactanos</span></div></a></li>
+<li class="active"><a href="{% url 'reservas_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Reserva </span></div></a></li>
+{% endblock %}
+
+
+{% block home %}
+<style type="text/css">
+    .form, .form input {
+        width: 100% ;
+    }
+</style>
+
+<div class="nav_item d-flex flex-column align-items-center justify-content-center" style="padding: 100px 300px">
+    <div class="container" style=" ;margin-left: 100px;margin-right: 100px;"> 
+
+        <form id="contact" action="" method="post">  
+        </br>
+                <font face="sans-serif" size="5">
+                    <center>
+                        
+                            <div class="section_title"><h3>Reservar</h3></div>
+                            <div class="section_title"><h4>Complete con sus datos el formulario</h4></div>
+                        
+                    </center>
+                </font>
+                <div class="room" style="">
+                    <div class="room_content text-left">
+                        <font style="color:black;" face="sans-serif" size="4">
+                            {% csrf_token %}
+                            <fieldset>
+                                <label>Nombre:</label>  
+                                <label style="padding: 20px 20px 20px" class="form" required>{{agregar_form.nombre}}</label>
+                            </fieldset>
+
+                            <fieldset>
+                                <label>Apellido:</label>  
+                                <label style="padding: 20px 20px 20px" class="form" required>{{agregar_form.apellido}}</label>
+                            </fieldset>
+
+                            <fieldset>
+                                <label>Clase:</label>  
+                                <label style="padding: 20px 20px 20px" class="form" required>{{agregar_form.clase}}</label>
+                            </fieldset>
+
+                            <fieldset>
+                                <label>Fecha de arribo:</label>  
+                                <label style="padding: 20px 20px 20px" class="form" required>{{agregar_form.fecha_inicio}}</label>
+                            </fieldset>  
+
+                            <fieldset>
+                                <label>Fecha de egreso:</label>  
+                                <label style="padding: 20px 20px 20px" class="form" required>{{agregar_form.fecha_fin}}</label>
+                            </fieldset>  
+                            <fieldset>
+                                <label>Consulta:</label>  
+                                <label style="padding: 20px 20px 20px" class="form" >{{agregar_form.consulta}}</label>
+                            </fieldset>
+                            {% block scripts_local %}  
+                            {% endblock scripts_local %} 
+                            <center>
+                                <div class="room_text">
+                                    <p>El ingreso a la habitacion se realiza a partir de las 10 am.</p>
+                                </div>
+                                    <fieldset>
+                                        <button class="button_container room_button" type="submit">
+                                            <div class="button text-center">
+                                                <span>
+                                                    Enviar!
+                                                </span>
+                                            </div>
+                                        </button>
+                                    </fieldset>
+                            </center>
+                        </font>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+    

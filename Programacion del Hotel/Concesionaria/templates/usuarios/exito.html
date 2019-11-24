@@ -1,0 +1,33 @@
+{% extends 'usuarios/template_raiz.html' %}
+    {%block barrita%}
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="/"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Inicio</span></div></a></li>
+                                    <li><a href="{% url 'restaurante' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Restaurante</span></div></a></li>
+                                    <li><a href="{% url 'habitaciones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Habitaciones</span></div></a></li>
+                                    <li><a href="{% url 'opiniones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Opiniones</span></div></a></li>
+                                    <li><a href="{% url 'contacto' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Contactanos</span></div></a></li>
+                                    <li><a href="{% url 'reservas_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Reserva </span></div></a></li>
+                                </ul>
+
+                            </nav>
+    {%endblock%}
+
+    {% block home %}
+    {% endblock %}
+
+    {% block body %}
+    <div style="padding: 250px">
+        <h3>
+            <center>
+                <a>Su solicitud se envio con exito</a>
+                </br>
+                </br>
+                <a>Nos contactaremos a la brevedad {{user.first_name}}</a>
+                </br>
+                </br>
+                <a>Muchas gracias</a>
+            </center>
+        </h3>
+    </div>
+    {% endblock %}

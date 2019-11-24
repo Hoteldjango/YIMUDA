@@ -1,0 +1,72 @@
+{% extends 'usuarios/template_raiz.html' %}
+    {{ agregar_form.media }}
+    {%block barrita%}
+                            
+    <li><a href="/"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Inicio</span></div></a></li>
+    <li><a href="{% url 'restaurante' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Restaurante</span></div></a></li>
+    <li class="active"><a href="{% url 'habitaciones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Habitaciones</span></div></a></li>
+    <li><a href="{% url 'opiniones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Opiniones</span></div></a></li>
+    <li ><a href="{% url 'contacto' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Contactanos</span></div></a></li>
+    <li><a href="{% url 'reservas_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Reserva </span></div></a></li>
+                                
+    {%endblock%}
+
+
+
+    {% block home %}  
+<div class="rooms">
+    <div class="container">
+        <div class="row">
+                <div class="col">
+                    <div class="section_title_container text-center magic_up">
+                        <div class="section_subtitle"></div>
+                    </br>
+                        <div class="section_title"><h2>Escoje tu habitacion</h2></div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="row room_row magic_up">
+            <br>
+                <br>
+                    <br>
+                        {% if habitaciones_usuarios %}
+                            {% for habitacion in habitaciones_usuarios %}
+                                {% if habitacion.imagen %}
+                        <div class="col-lg-4 room_col">
+                            <div class="room">
+                                <div class="room_image"><img src="{{ habitacion.imagen.url }}" alt="https://unsplash.com/@jonathan_percy"></div>
+                                {% endif %}
+                                <div class="room_content text-center">
+                                    <div class="room_price">Precio: {{habitacion.precio}}/ <span>Noche</span></div>
+                                    <div class="room_type">{{habitacion.estado}}</div>
+                                    <div class="room_title"><a href="rooms.html">{{habitacion.clase}}</a></div>
+                                    <div class="room_text">
+                                        <p>Habitacion para {{habitacion.capacidad}} personas, esta tiene los siguientes servicios: {{habitacion.informacion}}.</p>
+                                    </div>
+                                    <a href="reservas_usuarios" class="button_container room_button">
+                                        <div class="button text-center">
+                                            <span>
+                                                Reservar
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <br>
+                <br>
+            <br>
+            {% endfor %}
+            {% else %}
+            <h1>
+                <p style="color:red;">
+                    No hay registros de habitaciones
+                </p>
+            </h1>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% for group in user.groups.all %}
+    {% if group.name == 'administrador' %}
+{% block title %}Modificar Clase{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+<form method="POST" action="">{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value='Guardar Cambios' />
+</form>
+{% endblock %}
+
+{% block footer %}
+
+
+
+{% endblock %}
+    {% endif %}
+{% endfor %}

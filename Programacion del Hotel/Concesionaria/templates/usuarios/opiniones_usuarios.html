@@ -1,0 +1,91 @@
+{% extends 'usuarios/template_raiz.html' %}
+    {{ agregar_form.media }}
+    {%block barrita%}
+    <li><a href="/"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Inicio</span></div></a></li>
+    <li><a href="{% url 'restaurante' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Restaurante</span></div></a></li>
+    <li ><a href="{% url 'habitaciones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Habitaciones</span></div></a></li>
+    <li class="active"><a href="{% url 'opiniones_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Opiniones</span></div></a></li>
+    <li ><a href="{% url 'contacto' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Contactanos</span></div></a></li>
+    <li><a href="{% url 'reservas_usuarios' %}"><div class="nav_item d-flex flex-column align-items-center justify-content-center"><span>Reserva </span></div></a></li>
+                                
+    {%endblock%}
+
+    {% block home %}
+    <div class="contact" style="padding: 100px ;" >
+        <div class="container">
+            <div class="row">           
+                <style type="text/css">
+                    .form, .form input {
+                        width: 100% ;
+                    }
+                </style>                                     
+                <div class="nav_item d-flex flex-column align-items-center justify-content-center" style="padding: 0px 300px">
+                    <div class="container" style=" ;margin-left: 10px;margin-right: 100px;">  
+                        <form id="contact" action="" method="post">
+                            {% csrf_token %}
+                            <font face="sans-serif" size="5">
+                                <center>
+                                    <div class="section_title"><h3>Opiniones</h3></div>
+                                    <div class="section_title"><h4>Complete con sus datos el formulario</h4></div>
+                                </center>
+                            </font>
+
+                            <div class="room" style="">      
+                                <div class="room_content text-left">
+                                    <font style="color:black;" face="sans-serif" size="4">
+
+                                        <fieldset>
+                                            <label>
+                                                Nombre:
+                                            </label>  
+                                            <label class="form" style="padding: 20px 20px 20px" required>
+                                                {{agregar_form.nombre}}
+                                            </label>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <label>
+                                                Apellido:
+                                            </label>  
+                                            <label class="form" style="padding: 20px 20px 20px"  required>
+                                                {{agregar_form.apellido}}
+                                            </label>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <label>
+                                                E-mail:
+                                            </label>  
+                                            <label class="form" style="padding: 20px 20px 20px"  required>
+                                                {{agregar_form.email}}
+                                            </label>
+                                        </fieldset>
+
+                                        <fieldset>
+                                            <label>
+                                                Comparte con nosotros tu opinion:
+                                            </label>  
+                                        <label class="form" style="padding: 20px 20px 20px" required>
+                                            {{agregar_form.descripcion}}
+                                        </label>
+                                        </fieldset>   
+
+                                        <fieldset>
+                                            <button class="button_container room_button" type="submit">
+                                                <div class="button text-center">
+                                                    <span>
+                                                        Enviar
+                                                    </span>
+                                                </div>
+                                            </button>
+                                        </fieldset>
+                                    </font>
+                                </div>
+                            </div>                                      
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

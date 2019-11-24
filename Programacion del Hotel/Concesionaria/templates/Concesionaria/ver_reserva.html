@@ -1,0 +1,53 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}Reservas{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+
+
+<a class="btn btn-primary" href="{% url 'reserva_nuevo' %}"  >Agregar reserva</a>
+<br>
+</br>
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Clase</td>
+                
+                <td>Consulta</td>
+                <td>Fecha de ingreso</td>
+                <td>Fecha de egreso</td>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            {% if reservas %}
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{reserva.nombre}}</td>
+                <td>{{reserva.apellido}}</td>
+                <td>{{reserva.clase}}</td>
+                
+                <td>{{reserva.consulta}}</td>
+                <td>{{reserva.fecha_inicio}}</td>
+                <td>{{reserva.fecha_fin}}</td>
+                <td>
+                    <a class="btn btn-primary"  href="{% url 'reserva_modificar' pk=reserva.pk %}">Editar</a>
+                    <a class="btn btn-danger"  href="{% url 'reserva_borrar' pk=reserva.pk %}">Borrar</a>
+                </td>
+
+            <tr>
+            {% endfor %}
+            {% else %}
+        </br>
+            <h3><p style="color:red;"> No hay registros de reservas </h3></p>
+        </br>
+            {% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}Contacto{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+</br>
+
+<a class="btn btn-primary" href="{% url 'contacto_nuevo' %}"  >Agregar contacto</a>
+
+<br>
+</br>
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Email</td>
+                <td>Descipcion</td>
+
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+            {% if contacto %}
+            {% for contacto in contacto %}
+            <tr>
+                
+                <td>{{contacto.nombre}}</td>
+                <td>{{contacto.apellido}}</td>
+                <td>{{contacto.email}}</td>
+                <td>{{contacto.descripcion}}</td>
+                
+
+                <td>
+                    <a class="btn btn-primary"  href="{% url 'contacto_modificar' pk=contacto.pk %}">Editar</a>
+                    <a class="btn btn-danger"  href="{% url 'contacto_borrar' pk=contacto.pk %}">Borrar</a>
+                </td>
+
+            <tr>
+            {% endfor %}
+            {% else %}
+        </br>
+            <h3><p style="color:red;"> No hay registros de contactos </h3></p>
+        </br>
+            {% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

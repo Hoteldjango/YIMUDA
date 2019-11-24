@@ -1,0 +1,18 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}Modificar Promocion{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+<form method="POST" action="">{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value='Guardar Cambios' />
+</form>
+{% endblock %}
+
+{% block footer %}
+
+
+
+{% endblock %}

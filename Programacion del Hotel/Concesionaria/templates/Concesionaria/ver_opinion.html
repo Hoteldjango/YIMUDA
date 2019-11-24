@@ -1,0 +1,53 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}Opiniones{% endblock %}
+{% block content %}
+</br>
+</br>
+</br>
+</br>
+
+<a class="btn btn-primary" href="{% url 'opinion_nuevo' %}"  >Agregar opinion</a>
+
+<br>
+</br>
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <td>Descipcion</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Email</td>
+
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+
+            {% if opiniones %}
+            {% for opinion in opiniones %}
+            <tr>
+                <td>{{opinion.descripcion}}</td>
+                <td>{{opinion.nombre}}</td>
+                <td>{{opinion.apellido}}</td>
+                <td>{{opinion.email}}</td>
+                
+
+                <td>
+                    <a class="btn btn-primary"  href="{% url 'opinion_modificar' pk=opinion.pk %}">Editar</a>
+                    <a class="btn btn-danger"  href="{% url 'opinion_borrar' pk=opinion.pk %}">Borrar</a>
+                </td>
+
+            <tr>
+            {% endfor %}
+            {% else %}
+        </br>
+            <h3><p style="color:red;"> No hay registros de opiniones </h3></p>
+        </br>
+            {% endif %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

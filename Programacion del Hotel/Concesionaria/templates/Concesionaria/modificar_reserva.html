@@ -1,0 +1,27 @@
+{% extends 'Concesionaria/base.html' %}
+
+{% block title %}Modificar Reserva{% endblock %}
+	{% block header %}
+        <div>
+        	</br>
+        	</br>
+        	</br>
+            <h1>Modificar Reserva</a></h1>
+        </div>
+    {% endblock %}
+{% block content %}
+<form method="POST" action="">
+	{% csrf_token %}
+	{{modificar_form.as_p}}
+<input type="submit" value='Guardar Cambios' />
+</form>
+{% endblock %}
+
+{% block footer %}
+
+
+
+{% endblock %}
+
+
+
