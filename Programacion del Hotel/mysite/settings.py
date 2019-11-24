@@ -25,7 +25,7 @@ SECRET_KEY = 'k#ke&4$!!v3o=qe=)yqvv(6g%d#5)&f#!v5z8wwg+rg*g)18t_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','192.168.17.13','.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','192.168.17.13','.pythonanywhere.com', 'hotelyimuda.pythonanywhere.com']
 
 
 # Application definition
